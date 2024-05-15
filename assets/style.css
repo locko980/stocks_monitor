@@ -1,0 +1,37 @@
+@font-face{
+    font-family: 'Nexa';
+    src: url('nexa-extralight.ttf') format('truetype'),
+        url('nexa-extralight.woff2') format('woff2'),
+        url('nexa-extralight.woff') format('woff');
+    font-weight: normal;
+    font-size: normal;
+}
+
+@font-face {
+    font-family: 'NexaRegular';
+    src: url('nexa-regular.otf') format('truetype'),
+        url('nexa-regular.woff2') format('woff2'),
+        url('nexa-regular.woff') format('woff');
+    font-weight: normal;
+    font-size: normal;
+}
+
+body{
+    background: linear-gradient(#100731, #100731, #0E112D, #0E112D) fixed;
+}
+
+.header_icon{
+    background-color: transparent;
+    border-color: transparent;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 16px;
+    padding: 0;
+    font-family: Nexa;
+}
+
+.header_icon:hover{
+    transition: 0.4s ease-out;
+    color: white;
+    background-color: transparent;
+    border-color: transparent;
+}

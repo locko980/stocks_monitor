@@ -4,3 +4,7 @@ import dash_bootstrap_components as dbc
 import pandas as pd
 import json
 from tvDatafeed.main import TvDatafeed
+
+layout = dbc.Container([
+    
+])

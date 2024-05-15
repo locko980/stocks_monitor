@@ -19,12 +19,15 @@ try:
 except:
     df_historical_data = pd.DataFrame(columns=['datetime', 'symbol', 'close'])
     
-df_historical_data = atualizar_historial_data(df_historical_data, ativo_org)
+df_historical_data = atualizar_historical_data(df_historical_data, ativo_org)
+
+df_historical_data = df_historical_data.to_dict()
+df_book = df_book.to_dict()
 
 app.layout = dbc.Container([
     dcc.Location(id='url'),
     dcc.Store(id='book_data_store', data=df_book, storage_type='memory'),
-    dcc.Store(id='historical_data_store', date=df_historical_data, storage_type='memory'),
+    dcc.Store(id='historical_data_store', data=df_historical_data, storage_type='memory'),
     dcc.Store(id='layout_data', data=[], storage_type='memory'),
     dbc.Row([
         dbc.Col([
@@ -34,7 +37,7 @@ app.layout = dbc.Container([
                ], className='header_layout') 
             ]),
             dbc.Row([
-                dbc.col([
+                dbc.Col([
                     fixed_row.layout
                 ])
             ]),
@@ -67,7 +70,7 @@ def atualizar_databases(book_data, historical_data):
     df_historical = pd.DataFrame(historical_data)
     
     ativo = iterar_sobre_df_book(df_book)
-    df_historical = atualizar_historical_data(df_historical, ativos)
+    df_historical = atualizar_historical_data(df_historical, ativo)
     df_historical.to_csv('historical_data.csv')
     
     return df_historical.to_dict()
