@@ -18,6 +18,6 @@ def atualizar_historical_data(df_historical_var: pd.DataFrame, ativos_org_var={}
     
     for symb_dict in ativos_org_var.items():
         new_line = tv.get_hist(*symb_dict, n_bars=5000)[['symbol', 'close']].reset_index()
-        df_historical_var = pd.concat([df_historical_var. new_line], ignore_index=True)
+        df_historical_var = pd.concat([df_historical_var.new_line], ignore_index=True)
 
     return df_historical_var.drop_duplicates(ignore_index=True)
